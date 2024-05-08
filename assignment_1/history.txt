@@ -1,0 +1,54 @@
+  220  cd /mnt/scratch-lustre/student8/
+  221  mkdir CTA200_2024
+  223  cd CTA200_2024/
+  225  mkdir assignment_1
+  228  touch /mnt/scratch-lustre/student8/CTA200_2024/assignment_1/README.md
+  273  cd /mnt/scratch-lustre/student8/CTA200_2024/assignment_1/
+  275  vi README.md
+  276  find ~murray -name "Hello_world.c" -print
+  277  find ~murray -name Hello_world.c" -print
+  279  cd ~murray
+  282  find . -name "Hello_world.c" -print
+  295  dir
+  296  cp ./Hello_world.c /mnt/scratch-lustre/student8/CTA200_2024/assignment_1/
+  298  cd /mnt/scratch-lustre/student8/CTA200_2024/assignment_1/
+  299  dir
+  300  cd ~murray
+  301  cp ./Hello_world.py /mnt/scratch-lustre/student8/CTA200_2024/assignment_1/
+  302  cd /mnt/scratch-lustre/student8/CTA200_2024/assignment_1/
+  307  mv Hello_world.c Hello_world_coulthard.c
+  308  mv Hello_world.py Hello_world_coulthard.py
+  310  find ~murray -name "Hell*" -print 2>/dev/null
+  311  cd ~murray
+  312  find . -name "Hell*" -print 2>/dev/null
+  315  cd /mnt/scratch-lustre/student8/CTA200_2024/assignment_1/
+  317  gcc -o Hello_world.c Hello_world_coulthard.c
+  321  ./Hello_world.c
+  323  module load python
+  327  python ./Hello_world_coulthard.py
+  358  git clone https://github.com/Rosayla-Coulthard/CTA200.git
+  361  cd CTA200
+  364  cat README.md
+  365  vi README.md
+  367  git add README.md
+  368  git commit README.md
+  378  mv CTA200 CTA200_git
+  380  cd CTA200_git
+  388  cd /mnt/scratch-lustre/student8/CTA200_git/
+  393  git push
+  396  cd CTA200_2024/assignment_1/
+  397  pwd
+  398  dir
+  399  vi Hello_world_coulthard.py
+  400  vi Hello_world_coulthard.c
+  403  ./Hello_world.c
+  404  gcc -o Hello_world_modified.x Hello_world_coulthard.c
+  405  mv Hello_world.c Hello_world.x
+  406  dir
+  407  ./Hello_world.x
+  408  python Hello_world_coulthard.py
+  409  ./Hello_world_modified.x
+  410  python Hello_world_coulthard.py > output_python.txt
+  411  dir
+  413  ./Hello_world_modified.x > output_c.txt
+  416  history > history.txt
