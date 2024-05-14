@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{wrapfig}
+
+\title{CTA200: Assignment 3 Report}
+\author{Rosayla Coulthard}
+\date{May 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Part 1}
+Part 1 of the assignment involved plotting the complex plane  with both x and y between -2 and 2, and then for every point in the plane, determine if it converges when input into the equation $z_{i + 1} = z_i^2 + c$
+With the given initial z value of 0. In order to achieve this, a function that would iterate over every point in the plane and determines if it converges or diverges was created. This function would return three objects:
+\begin{itemize}
+    \item conv: a list that contains all points in the plane that converge when input into the equation.
+    \item div: a list that contains all points in the plane that diverge when input into the equation.
+    \item loops: a list that contains after how many iterations did the points that diverge, diverge.
+\end{itemize}
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+  \centering
+  \includegraphics[width=0.7\textwidth]{CTA200_fig1.png}
+  \caption{Number of Iterations Required for Divergence}
+\end{wrapfigure}
+
+This function took in three values, start, stop, and step which essentially dictated the bounds and number of points that would be present in the plane. 
+To preserve code efficiency, step was chosen to be 0.01 meaning there is a total of 160 000 points in the plane. Then, each of these points was fed into the equation described above iterating a total of 10 times per point, beginning with $z=0$. If the point diverged within the 10 iterations, the number of iterations required for that point was added to the list loops and the point itself was added to the list div. For points that did converge, they were added to the list conv.
+
+Upon obtaining these three lists, the imported package matplotlib is able to then plot these lists by utilizing the loops list as a colour scale to  help visually differentiate the points that converge and diverge. 
+Figure 1 contains the output of the code above. It it clearly seen that the Mandelbrot fractal is formed when diverged points vs converged points are plotted.
+
+
+\section{Part 2}
+This section of the assignment required coding, solving (using the ivp solver import), and then plotting three of Lorenz' equations. 
+
+Part 1 was executed by creating a simple function which returned an array containing each of the three equations, denoted X, Y and Z. For the second part, the packages scipy was imported, more specifically to use ivpsolve. The result was an array containing the solutions to the three Lorenz equations between t = 0 and t= 60 as specified in the question. Thus the solutions to the equations X, Y and Z at t= 60 are clearly: -3.2055939261171154, -2.0098502467673662, 23.207686346568696.
+
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+  \centering
+  \includegraphics[width=0.7\textwidth]{CTA200_fig2.png}
+  \caption{Value of Y over the first 1000 iterations}
+\end{wrapfigure}
+
+Both part 3 and part 4 involved replicating plots in the paper written by Lorenz. The first plot being the Y values over various iterations of the three equations. 
+The first 1000, second 1000 and third 1000 iterations were plotted similarly to how the plot for the first question was created. For document simplicity, only the first 1000 iteration plot is included here. 
+The second plot that needed to be created is the plot of the 1400th iteration to the 1900th iteration of the XY and YZ plane. 
+Once again, they were plotted in the same way as the previous plots and only one of the plots was included. When both plots are compared to the plots obtained by Lorenz, they are very similar, especially with the plots from question 2 part 3. There are however slight discrepancies between the plots, for instance the plots of Y over iterations show different numbers of peaks, however the overall shape remains the same. 
+Additionally in the plots from part 4, the lines are not as smooth and the shapes are not identical, once again though, they appear to follow the same shape. The differences in the graphs may be attributed to the equations that have been given are only 'short forms' of the actual equations. 
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+  \centering
+  \includegraphics[width=0.8\textwidth]{CTA200_fig3.png}
+  \caption{Value of Y over the first 1000 iterations}
+\end{wrapfigure}
+
+Lack of experience relative to Lorenz should also be considered. Lastly, the final part of the second question involved plotting the difference between the original results, and new results generated when one parameter is changed slightly. When the new ODE is solved, and then its difference is plotted on a log distance over time graph, it is clear that the observed graph is linear. It can be concluded that even changing one parameter very slightly, can exponentially impact the results. This might also offer explanation for why the generated graphs in the previous part look different form what was plotted by Lorenz.
+
+
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+  \centering
+  \includegraphics[width=1\textwidth]{CTA200_fig4.png}
+  \caption{Difference between function of original paramters and new parameters}
+\end{wrapfigure}
+
+\end{document}
